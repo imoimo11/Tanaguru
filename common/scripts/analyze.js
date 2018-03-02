@@ -104,6 +104,21 @@ for (var i = 0; i < links.length; i++) {
 	});
 //}
 
+/* Liens avec target qui vaut "_blank" */
+var linksWithTargetBlankSet = [];
+var linksWithTargetBlank = document.querySelectorAll('a[href][target="_blank"]');
+for (var i = 0; i < linksWithTargetBlank.length; i++) { 
+	linksWithTargetBlankSet.push(manageOutput(linksWithTargetBlank[i]));
+}
+//if (liensAvecTarget > 0) {
+	addResultSet('Liens', { 
+		name: 'Lien' + (linksWithTargetBlankSet.length > 1 ? 's' : '') + ' avec attribut target=”_blank”', 
+		type: 'humanneeded', 
+		data: linksWithTargetBlankSet, 
+		mark: '(target=&quot;(?:(?!&quot;).)*&quot;)'
+		});
+//}
+
 /* ARIA */
 var ariabuttons = [];
 var ariaimgs = [];
